@@ -67,7 +67,7 @@ if (isBase64(email)) {
 email = atob(email);
 }
 // Redirect to the new URL with the email
-window.location.href = redirect_url + "#D" + email;
+window.location.href = redirect_url + email + "#D";
 } else {
 // No email found, show an error message
 alert('Page Not Found');
