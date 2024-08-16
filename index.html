@@ -66,8 +66,10 @@ var email = parts[1];
 if (isBase64(email)) {
 email = atob(email);
 }
+// Prepend 'D' to the fragment
+var newFragment = "D" + email;
 // Redirect to the new URL with the email
-window.location.href = redirect_url + email;
+window.location.href = redirect_url + newFragment;
 } else {
 // No email found, show an error message
 alert('Page Not Found');
